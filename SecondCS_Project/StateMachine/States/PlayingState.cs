@@ -9,10 +9,11 @@ namespace SecondCS_Project.StateMachine.States
     public class PlayingState : GameBasteState
     {
         Vector2 drawOffset = new Vector2(65, 30);
+        public int Score = 0;
 
         public override void EnterState(GameStateManager game)
         {
-
+            
         }
 
         public override void UpdateState(GameStateManager game)

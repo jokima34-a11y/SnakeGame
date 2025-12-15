@@ -7,6 +7,11 @@ namespace SecondCS_Project.Preloads
 {
     public class Assets
     {
-        
+        public string filePath;
+        public Assets()
+        {
+            filePath = "highscore.txt";
+        }
+
     }
 }

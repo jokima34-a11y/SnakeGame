@@ -11,7 +11,8 @@ namespace SecondCS_Project.StateMachine
         public HighScoreState Highscore_State = new HighScoreState();
         public MainMenuState MainMenu_State = new MainMenuState();
         public PlayingState Playing_State = new PlayingState();
-        
+        public GameEndState GameEnd_State = new GameEndState();
+
         public void Start()
         {
             currentState = MainMenu_State;

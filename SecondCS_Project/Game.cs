@@ -45,7 +45,7 @@ namespace SecondCS_Project
         {
             StateManager.Update(DT);
         }
-        
+
         private void Draw()
         {
             BeginDrawing();
@@ -63,6 +63,10 @@ namespace SecondCS_Project
 
                 case HighScoreState:
                     StateManager.Highscore_State.Draw();
+                    break;
+
+                case GameBasteState:
+                    StateManager.GameEnd_State.Draw();
                     break;
             }
 
