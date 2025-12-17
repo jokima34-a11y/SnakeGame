@@ -6,7 +6,9 @@ namespace SecondCS_Project.dataTypes
 {
     class Const
     {
-        public const int SCREEN_WIDTH = 800;
-        public const int SCREEN_HEIGHT = 600;
+        public const int TileSize = 30;
+        public const int cellCount = 25;
+        public const int SCREEN_WIDTH = TileSize * cellCount;
+        public const int SCREEN_HEIGHT = TileSize * cellCount;
     }
 }

@@ -10,6 +10,7 @@ using SecondCS_Project.dataTypes;
 using static Raylib_cs.Raylib;
 using SecondCS_Project.StateMachine;
 using SecondCS_Project.StateMachine.States;
+using SecondCS_Project.Player_Fruit;
 
 namespace SecondCS_Project
 {
@@ -24,9 +25,13 @@ namespace SecondCS_Project
     class Game
     {
         new GameStateManager StateManager;
+        new Fruit fruitHandler;
         public void Run()
         {
+            fruitHandler = new Fruit();
             StateManager = new GameStateManager();
+
+            fruitHandler.Start();
             StateManager.Start();
 
             Raylib.InitWindow(Const.SCREEN_WIDTH, Const.SCREEN_HEIGHT, "Cool window");
@@ -44,6 +49,7 @@ namespace SecondCS_Project
         private void Update(float DT)
         {
             StateManager.Update(DT);
+            fruitHandler.Update(DT);
         }
 
         private void Draw()
@@ -55,6 +61,7 @@ namespace SecondCS_Project
             {
                 case PlayingState:
                     StateManager.Playing_State.Draw();
+                    fruitHandler.Draw();
                     break;
 
                 case MainMenuState:
