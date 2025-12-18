@@ -61,4 +61,32 @@ namespace SecondCS_Project.dataTypes
                 return false;
         }
     }
+
+    struct objectCollision
+    {
+        Vector2 Target_position;
+        Vector2 Object_position;
+
+        Rectangle targetBounds;
+        Rectangle objectBounds;
+
+        public objectCollision(Vector2 targetPosition, Vector2 objectPostition, float height=Const.TileSize)
+        {
+            Target_position = targetPosition;
+            Object_position = objectPostition;
+
+            targetBounds = new Rectangle(targetPosition.X,
+                targetPosition.Y, Const.TileSize, Const.TileSize);
+            objectBounds = new Rectangle(objectPostition.X,
+                objectPostition.Y, Const.TileSize, height);
+        }
+
+        public bool checkCollision()
+        {
+            if (Raylib.CheckCollisionRecs(objectBounds, targetBounds))
+                return true;
+            else
+                return false;
+        }
+    }
 }

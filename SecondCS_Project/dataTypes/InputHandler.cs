@@ -7,40 +7,46 @@ namespace SecondCS_Project.dataTypes
 {
     class Input
     {
-        KeyboardKey Horizontal_Bind;
-        KeyboardKey Inverse_Horizontal;
-        KeyboardKey Vertical_Bind;
-        public Input(KeyboardKey Horizontal = KeyboardKey.W, KeyboardKey Vertical = KeyboardKey.Space, KeyboardKey inverse_Horizontal = KeyboardKey.S)
+        KeyboardKey BindRight;
+        KeyboardKey BindLeft;
+        KeyboardKey BindUp;
+        KeyboardKey BindDown;
+        public Input(KeyboardKey BindRight = KeyboardKey.Right, KeyboardKey BindUp = KeyboardKey.Down, KeyboardKey BindLeft = KeyboardKey.Left, KeyboardKey BindDown = KeyboardKey.Up)
         {
-            Horizontal_Bind = Horizontal;
-            Vertical_Bind = Vertical;
-            Inverse_Horizontal = inverse_Horizontal;
+            this.BindRight = BindRight;
+            this.BindDown = BindDown;
+            this.BindLeft = BindLeft;
+            this.BindUp = BindUp;
         }
 
-        public int GetAxis(string? Horizontal = null, string? Vertical = null)
+        public int GetHorizontal(string? Horizontal = null)
         {
             if (Horizontal != null)
             {
-                if (Raylib.IsKeyDown(Horizontal_Bind))
+                if (Raylib.IsKeyDown(BindRight))
                     return 1;
 
-                else if (Raylib.IsKeyDown(Inverse_Horizontal))
+                else if (Raylib.IsKeyDown(BindLeft))
                     return -1;
 
                 else
                     return 0;
             }
+            return 0;
+        }
 
+        public int GetVertical(string? Vertical = null)
+        {
             if (Vertical != null)
             {
-                if (Raylib.IsKeyDown(Vertical_Bind))
-                {
+                if (Raylib.IsKeyDown(BindUp))
                     return 1;
-                }
+
+                else if (Raylib.IsKeyDown(BindDown))
+                    return -1;
+
                 else
-                {
                     return 0;
-                }
             }
             return 0;
         }
@@ -49,9 +55,10 @@ namespace SecondCS_Project.dataTypes
         {
             return keyName switch
             {
-                "Horizontal" => Horizontal_Bind,
-                "Inverse_Horizontal" => Inverse_Horizontal,
-                "Vertical" => Vertical_Bind,
+                "Horizontal" => BindRight,
+                "Inverse_Horizontal" => BindLeft,
+                "VerticalUp" => BindUp,
+                "VerticalDown" => BindDown,
                 _ => throw new ArgumentException("Invalid key name"),
             };
         }

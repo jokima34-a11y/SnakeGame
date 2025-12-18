@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SecondCS_Project.Player_Fruit;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

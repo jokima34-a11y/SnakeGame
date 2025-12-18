@@ -48,5 +48,10 @@ namespace SecondCS_Project.Player_Fruit
         {
             return new Vector2(random.Next(1, Const.cellCount) * Const.TileSize, random.Next(1, Const.cellCount) * Const.TileSize);
         }
+
+        public void regeneratePosition()
+        {
+            position = generatePosition();
+        }
     }
 }

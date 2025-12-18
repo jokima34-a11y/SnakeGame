@@ -24,14 +24,13 @@ namespace SecondCS_Project
 
     class Game
     {
-        new GameStateManager StateManager;
-        new Fruit fruitHandler;
+        GameStateManager StateManager;
         public void Run()
         {
-            fruitHandler = new Fruit();
             StateManager = new GameStateManager();
+            StateManager.fruitHandler = new Fruit();
 
-            fruitHandler.Start();
+            StateManager.fruitHandler.Start();
             StateManager.Start();
 
             Raylib.InitWindow(Const.SCREEN_WIDTH, Const.SCREEN_HEIGHT, "Cool window");
@@ -49,7 +48,7 @@ namespace SecondCS_Project
         private void Update(float DT)
         {
             StateManager.Update(DT);
-            fruitHandler.Update(DT);
+            StateManager.fruitHandler.Update(DT);
         }
 
         private void Draw()
@@ -61,7 +60,7 @@ namespace SecondCS_Project
             {
                 case PlayingState:
                     StateManager.Playing_State.Draw();
-                    fruitHandler.Draw();
+                    StateManager.fruitHandler.Draw();
                     break;
 
                 case MainMenuState:

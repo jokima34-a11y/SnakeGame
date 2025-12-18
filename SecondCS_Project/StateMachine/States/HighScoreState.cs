@@ -21,7 +21,7 @@ namespace SecondCS_Project.StateMachine.States
             loadData();
         }
 
-        public override void UpdateState(GameStateManager game)
+        public override void UpdateState(GameStateManager game, float deltaTime)
         {
             //Check if pressed x button, switch state back to main menu
             //also update data

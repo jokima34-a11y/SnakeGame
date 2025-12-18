@@ -19,7 +19,7 @@ namespace SecondCS_Project.StateMachine.States
             
         }
 
-        public override void UpdateState(GameStateManager game)
+        public override void UpdateState(GameStateManager game, float deltaTime)
         {
             if (isTouchingPlayButton() && Raylib.IsMouseButtonPressed(MouseButton.Left))
                 game.switchState(game.Playing_State);

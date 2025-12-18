@@ -1,4 +1,5 @@
-﻿using SecondCS_Project.StateMachine.States;
+﻿using SecondCS_Project.Player_Fruit;
+using SecondCS_Project.StateMachine.States;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,7 @@ namespace SecondCS_Project.StateMachine
         public MainMenuState MainMenu_State = new MainMenuState();
         public PlayingState Playing_State = new PlayingState();
         public GameEndState GameEnd_State = new GameEndState();
-
+        public Fruit fruitHandler;
         public void Start()
         {
             currentState = MainMenu_State;
@@ -21,7 +22,7 @@ namespace SecondCS_Project.StateMachine
 
         public void Update(float DeltaTime)
         {
-            currentState.UpdateState(this);
+            currentState.UpdateState(this, DeltaTime);
         }
 
         public void switchState(GameBasteState newState)
