@@ -41,7 +41,7 @@ namespace SecondCS_Project.dataTypes
         Vector2 Position;
         Rectangle playBounds;
 
-        public TextCollision(Vector2 position, int fontSize, string textContent)
+        public TextCollision(Vector2 position, int fontSize, string textContent) //could use a "text' type instead
         {
             Position = position;
 

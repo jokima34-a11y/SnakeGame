@@ -11,8 +11,9 @@ namespace SecondCS_Project.StateMachine.States
 {
     public class PlayingState : GameBasteState
     {
-        Vector2 drawOffset = new Vector2(65, 30);
+        private Text scoreText;
         public Snake snake;
+
         public int Score = 0;
 
         public override void EnterState(GameStateManager game)
@@ -23,11 +24,23 @@ namespace SecondCS_Project.StateMachine.States
         public override void UpdateState(GameStateManager game, float deltaTime)
         {
             snake.Update(deltaTime, game.fruitHandler, game);
+            Score = snake.GetScore;
         }
 
         public void Draw()
         {
+            Text_Draw();
             snake.Draw();
+        }
+
+        public void Text_Draw()
+        {
+            scoreText = new Text(Score.ToString(),
+            50,
+            (int)Raylib.GetScreenCenter().X / 4,
+            (int)Raylib.GetScreenCenter().Y / 4);
+
+            scoreText.Draw();
         }
     }
 }

@@ -13,11 +13,13 @@ namespace SecondCS_Project.Player_Fruit
 
         public Vector2 Direction { get; private set; }
         private Vector2 pendingDirection;
+        public int Score { get; private set; }
 
         objectCollision collision;
         objectCollision collision2;
 
         public int Length => Segments.Count;
+        public int GetScore => Score;
         public Vector2 Head => Segments[0];
 
         public float GracePeriod = 0;
@@ -69,6 +71,7 @@ namespace SecondCS_Project.Player_Fruit
                 if (checkFruitCollision(fruitManager.position))
                 {
                     // Do nothing → snake grows naturally
+                    Score++;
                     fruitManager.regeneratePosition();
                 }
                 else
